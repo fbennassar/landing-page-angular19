@@ -16,6 +16,7 @@ export class ContactComponent implements OnInit {
   onSubmit(event: Event): void {
     event.preventDefault();
     console.log(this.contactForm.value);
+    this.contactForm.reset();
   }
   constructor(private formBuilder: FormBuilder) {
     this.contactForm = formBuilder.group({

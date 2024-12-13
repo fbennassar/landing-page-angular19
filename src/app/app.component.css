@@ -1,3 +1,22 @@
 nav {
     width: 100%;
 }
+
+/* .container-main {
+    display: grid ;
+    min-height: 100dvh ;
+    grid-template-rows: auto 1fr auto;
+} */
+
+footer {
+    background-color: #384B70 !important;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+.contenedor {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}

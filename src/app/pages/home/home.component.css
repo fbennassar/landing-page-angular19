@@ -4,6 +4,7 @@
 }
 
 img {
+    margin-top: 6vw;
     width: 75%;
     height: 75%;
     object-fit: cover;

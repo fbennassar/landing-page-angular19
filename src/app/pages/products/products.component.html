@@ -1,0 +1,29 @@
+
+<div class="container">
+
+  <h1>This is our products:</h1>
+  
+  <div class="table-responsive">
+
+    <table #table class="table table-light table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+          </tr>
+        </thead>
+        <tbody>
+    
+            @for (product of productsList; track $index) {
+                <tr (click)="navegate(product.id)" style="cursor: pointer;">
+                  <td>{{ product.title }}</td>
+                  <td>${{ product.price }}</td>
+                  <td>{{ product.category }}</td>
+                </tr>
+    
+            }
+        </tbody>
+      </table>
+  </div>
+</div>

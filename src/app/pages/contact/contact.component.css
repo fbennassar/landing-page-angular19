@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-group {
+    margin-top: 2vw;
+    width: 50%;
+}

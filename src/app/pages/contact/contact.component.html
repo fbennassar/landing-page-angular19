@@ -1,0 +1,50 @@
+<div class="container">
+  <form
+    [formGroup]="contactForm"
+    class="form-group"
+    (submit)="onSubmit($event)"
+  >
+    <h1>Contact Us</h1>
+    <div class="mb-3">
+      <label for="FormControlInput" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="FormControlInput"
+        placeholder="name@example.com"
+        formControlName="email"
+        [ngClass]="{ 'is-invalid' : hasErrors('email', 'required') || hasErrors('email', 'email') }"
+      />
+
+      @if (hasErrors('email', 'required')) {
+          <span class="text-danger">You have to complete this field</span>
+
+      }
+        @if (hasErrors('email', 'email')) {
+            <span class="text-danger">Invalid email format</span>
+        }
+    </div>
+    <div class="mb-3">
+      <label for="FormControlTextarea" class="form-label">Message</label>
+      <textarea
+        class="form-control"
+        id="FormControlTextarea"
+        rows="5"
+        formControlName="message"
+        [ngClass]="{ 'is-invalid' : hasErrors('message', 'required') || hasErrors('message', 'minlength') } "
+      ></textarea>
+
+      @if (hasErrors('message', 'required')) {
+        <span class="text-danger">You have to complete this field</span>
+
+    }
+      @if (hasErrors('message', 'minlength')) {
+        <span class="text-danger">You have to write at least 10 characters</span>
+      }
+      
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-outline-danger">Submit</button>
+    </div>
+  </form>
+</div>

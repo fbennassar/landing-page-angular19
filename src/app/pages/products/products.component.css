@@ -1,5 +1,13 @@
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.filled-star {
+  color: gold;
+}
+
+.empty-star {
+  color: lightgray;
 }

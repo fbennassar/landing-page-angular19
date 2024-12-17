@@ -1,11 +1,35 @@
 <div class="container">
-  @if (loading) {
-  <h5>Loading...</h5>
-  } 
-  
-  @if (!loading) {
+  @if (loading && imageLoading) {
+  <div class="card" aria-hidden="true" style="width: 18rem">
+    <div
+      class="card-img-top placeholder"
+      style="height: 180px; background-color: #e0e0e0"
+    ></div>
+    <div class="card-body">
+      <h5 class="card-title placeholder-glow">
+        <span class="placeholder col-6"></span>
+      </h5>
+      <p class="card-text placeholder-glow">
+        <span class="placeholder col-7"></span>
+        <span class="placeholder col-4"></span>
+        <span class="placeholder col-4"></span>
+      </p>
+    </div>
+  </div>
+  } @if (!loading) {
   <div class="card" style="width: 18rem">
-    <img src="{{ product?.image }}" class="card-img-top" alt="product" />
+    @if (imageLoading) {
+    <div
+      class="card-img-top placeholder"
+      style="height: 180px; background-color: #e0e0e0"
+    ></div>
+    }
+    <img
+      [src]="product?.image"
+      class="card-img-top"
+      alt="product"
+      (load)="onImageLoad()"
+    />
     <div class="card-body">
       <h4>${{ product?.price }}</h4>
       <h5 class="card-title">{{ product?.title }}</h5>
@@ -13,5 +37,4 @@
     </div>
   </div>
   }
-  
 </div>

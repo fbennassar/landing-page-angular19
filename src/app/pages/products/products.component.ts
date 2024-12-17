@@ -15,10 +15,16 @@ export class ProductsComponent implements OnInit {
   productsList: IProduct[] = [];
   private _apiService = inject(ApiService);
   private router = inject(Router);
+  loading:boolean = true;
+
+  getStars(rating: number): number[] {
+    return Array(5).fill(0).map((x, i) => i + 1);
+  }
 
   ngOnInit(): void {
     this._apiService.getProducts().subscribe((data: IProduct[]) => {
       this.productsList = data;
+      this.loading = false;
     });
   }
 

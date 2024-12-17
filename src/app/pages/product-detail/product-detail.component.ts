@@ -12,6 +12,7 @@ import { IProduct } from '../../models/product.model';
 export class ProductDetailComponent implements OnInit {
 
   loading:boolean = true;
+  imageLoading:boolean = true;
   private _route = inject(ActivatedRoute);
   private _apiService = inject(ApiService);
   public product?: IProduct; // ? means that the variable can be null
@@ -21,7 +22,12 @@ export class ProductDetailComponent implements OnInit {
       this._apiService.getProductById(params['id']).subscribe((data: IProduct) => {
         this.product = data;
         this.loading = false;
+        this.onImageLoad();
       });
     });
+  }
+  
+  onImageLoad(): void {
+    this.imageLoading = false;
   }
 }

@@ -19,4 +19,8 @@ export class ApiService {
     return this._http.get<IProduct>(`${this.baseUrl}/${id}`);
   }
 
+  getProductsByCategory(category: string): Observable<IProduct[]> {
+    return this._http.get<IProduct[]>(`${this.baseUrl}/category/${category}`);
+  }
+
 }

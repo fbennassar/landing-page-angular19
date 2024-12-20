@@ -3,10 +3,11 @@ import { ApiService } from '../../services/api.service';
 import { CommonModule } from '@angular/common';
 import { IProduct } from '../../models/product.model';
 import { Router } from '@angular/router';
+import { CategoryFilterComponent } from './category-filter/category-filter.component';
 
 @Component({
   selector: 'app-products',
-  imports: [CommonModule],
+  imports: [CommonModule, CategoryFilterComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
@@ -30,5 +31,24 @@ export class ProductsComponent implements OnInit {
 
   navegate(id: number) {
     this.router.navigate(['/products', id]);
+  }
+
+  allProducts() {
+    this.loading = true;
+    this._apiService.getProducts().subscribe((data: IProduct[]) => {
+      this.productsList = data;
+      this.loading = false;
+    });
+  }
+
+  filterProductsByCategory(category: string) {
+    if (!category) {
+      return this.allProducts();
+    }
+    this.loading = true;
+    this._apiService.getProductsByCategory(category).subscribe((data: IProduct[]) => {
+      this.productsList = data;
+      this.loading = false;
+    });
   }
 }

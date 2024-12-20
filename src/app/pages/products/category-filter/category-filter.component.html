@@ -1,0 +1,15 @@
+<div class="btn-group">
+    <button type="button" class="btn btn-outline-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Filters
+    </button>
+    <ul class="dropdown-menu">
+      <li class="dropdown-item" (click)="noFilter()" style="cursor: pointer;">
+        All
+      </li>
+      @for (category of categories; track $index) {       
+        <li class="dropdown-item" (click)="filterByCategory(category)" style="cursor: pointer;">
+            {{ category }}
+        </li>
+      }
+    </ul>
+  </div>
